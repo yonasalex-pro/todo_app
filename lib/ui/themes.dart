@@ -25,7 +25,7 @@ class Themes {
 
 TextStyle get subHeadingStyle {
   return TextStyle(
-    color: Get.isDarkMode ? Colors.grey[400] : Colors.grey.withOpacity(0.7),
+    color: Get.isDarkMode ? Colors.grey[500] : Colors.grey.withOpacity(0.8),
     fontSize: 13,
     fontWeight: FontWeight.bold,
   );
