@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:todo_app/services/notification_services.dart';
 import 'package:todo_app/services/theme_services.dart';
+import 'package:todo_app/ui/add_task_screen.dart';
 import 'package:todo_app/ui/themes.dart';
 
 class HomePage extends StatefulWidget {
@@ -35,6 +36,15 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+      floatingActionButton: _buildFAB(),
+    );
+  }
+
+  FloatingActionButton _buildFAB() {
+    return FloatingActionButton(
+      onPressed: () => Get.to(() => const AddTaskScreen()),
+      backgroundColor: blue,
+      child: const Icon(Icons.post_add_outlined, color: white),
     );
   }
 
