@@ -42,7 +42,11 @@ class _HomePageState extends State<HomePage> {
 
   FloatingActionButton _buildFAB() {
     return FloatingActionButton(
-      onPressed: () => Get.to(() => const AddTaskScreen()),
+      onPressed: () => Get.to(
+        () => const AddTaskScreen(),
+        transition: Transition.downToUp,
+        duration: const Duration(milliseconds: 600),
+      ),
       backgroundColor: blue,
       child: const Icon(Icons.post_add_outlined, color: white),
     );
