@@ -1,3 +1,4 @@
+import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -14,6 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late NotificationService notificationService;
+  DateTime selectedDate = DateTime.now();
   @override
   void initState() {
     super.initState();
@@ -26,11 +28,40 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: _buildAppBar(),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.only(top: 10, left: 14),
         child: Column(
-          children: const [],
+          children: [
+            _buildDatePicker(),
+          ],
         ),
       ),
+    );
+  }
+
+  DatePicker _buildDatePicker() {
+    return DatePicker(
+      DateTime.now(),
+      height: 78,
+      width: 48,
+      initialSelectedDate: DateTime.now(),
+      selectionColor: blue,
+      selectedTextColor: white,
+      dateTextStyle: const TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.w600,
+        color: Colors.grey,
+      ),
+      monthTextStyle: const TextStyle(
+        fontSize: 10,
+        fontWeight: FontWeight.w600,
+        color: Colors.grey,
+      ),
+      dayTextStyle: const TextStyle(
+        fontSize: 10,
+        fontWeight: FontWeight.w600,
+        color: Colors.grey,
+      ),
+      onDateChange: (newDate) => selectedDate = newDate,
     );
   }
 
